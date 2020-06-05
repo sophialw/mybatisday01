@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kkk">
+
+  <select id="findAll" resultType="com.neutech.bean.User">
+    select * from t_user
+  </select>
+  
+  <insert id="addUser" parameterType="com.neutech.bean.User">
+  	insert into t_user(uname,pwd) values(#{uname},#{pwd})
+  </insert>
+  
+  
+  <select id="findUserById" parameterType="java.lang.Integer"  resultType="com.neutech.bean.User">
+  	select * from t_user where uid = #{id}
+  </select>
+  
+  <delete id="deleteUserByid" parameterType="java.lang.Integer">
+  	delete from t_user where uid = #{id}
+  </delete>
+  
+  <update id="updateUser" parameterType="com.neutech.bean.User">
+  	update t_user set uname = #{uname},pwd = #{pwd} where uid=#{uid}
+  </update>
+</mapper>
